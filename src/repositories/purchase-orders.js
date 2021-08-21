@@ -3,6 +3,18 @@ const makeDbInstance = require('../main/factories/db');
 const db = makeDbInstance();
 
 module.exports = class PurchaseOrdersRepository {
+    async delete(id) {
+        const sql = `
+            UPDATE 
+                purchase_orders
+            SET 
+                deletion_flag = 'Y' 
+            WHERE 
+                id = ?;
+        `;
+        return db.update(sql, id);
+    }
+    
     async findAll() {
         const sql = `
             SELECT
@@ -10,8 +22,10 @@ module.exports = class PurchaseOrdersRepository {
             FROM
                 purchase_orders as po
             INNER JOIN
-                products as pd ON po.product_id = pd.id
-            LEFT JOIN 
+                products as pd ON po.product_id = pd.id 
+                AND
+                po.deletion_flag = 'N'
+            INNER JOIN 
                 suppliers as sp ON pd.supplier_id = sp.id
         `;
         const purchase_orders = await db.select(sql);
@@ -29,4 +43,6 @@ module.exports = class PurchaseOrdersRepository {
 
         return db.persistMany(sql, purchase_orders);
     }
+
+    
 };
