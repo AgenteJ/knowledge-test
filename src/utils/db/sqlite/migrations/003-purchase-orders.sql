@@ -1,11 +1,12 @@
 --------------------------------------------------------------------------------
--- Up
+-- Up pedido de compra
 --------------------------------------------------------------------------------
 
 CREATE TABLE purchase_orders (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     product_id INTEGER NOT NULL, 
     price REAL,
+    deletion_flag CHAR(1),
     CONSTRAINT purchaseOrderProduct_fk_productId FOREIGN KEY (product_id)
     REFERENCES products (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
