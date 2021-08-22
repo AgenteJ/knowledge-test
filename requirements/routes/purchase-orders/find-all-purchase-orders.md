@@ -1,4 +1,4 @@
-# Listar ordens de compra
+# Listar Pedidos de compra
 
 > ## Caso de sucesso
 
