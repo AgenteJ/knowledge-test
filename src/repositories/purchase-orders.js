@@ -12,12 +12,15 @@ module.exports = class PurchaseOrdersRepository {
             WHERE 
                 id = ?;
         `;
-        return db.update(sql, id);
+        return db.deleteOne(sql, id);
     }
     
     async findAll() {
         const sql = `
             SELECT
+                po.id as orders_id,
+                pd.id as product_id,
+                sp.id as supplier_id,
                 *
             FROM
                 purchase_orders as po

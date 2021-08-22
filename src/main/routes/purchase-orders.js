@@ -6,5 +6,5 @@ const makeDeletePurchaseOrdersController = require('../factories/controllers/pur
 module.exports = (router) => {
     router.get('/orders', adaptRoute(makeFindAllPurchaseOrders()));
     router.post('/orders', adaptRoute(makeCreatePurchaseOrdersController()));
-    router.delete('/orders/:id', adaptRoute(makeDeletePurchaseOrdersController()));
+    router.delete('/orders/:id', adaptRoute(makeDeletePurchaseOrdersController())); 
 };

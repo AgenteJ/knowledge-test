@@ -1,4 +1,4 @@
-const { serverError, badRequest, deleted } = require('../../utils/http/http-helper');
+const { serverError, badRequest, success } = require('../../utils/http/http-helper');
 
 module.exports = class DeletePurchaseOrderController {
     constructor(repository, validation) {
@@ -13,10 +13,10 @@ module.exports = class DeletePurchaseOrderController {
                 return badRequest(errors);
             }
 
-            await this.repository.delete(request.route.id);
-            return deleted(request.route);
+            const serializedPurchaseOrders = request.route.id;
+            await this.repository.delete(serializedPurchaseOrders);
+            return success(request.route);
         } catch (error) {
-            console.log(error)
             return serverError(error);
         }
     }

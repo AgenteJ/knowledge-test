@@ -7,7 +7,7 @@ const getMandatoryFields = () => [
 ];
 
 const getSchema = () => ({
-    id: value => typeof parseInt(value) === 'number' 
+    id: value => parseInt(value) === +value
 });
 
 module.exports = () => {

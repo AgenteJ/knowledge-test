@@ -52,10 +52,11 @@ module.exports = class SQLiteAdapter {
         return batchData.length;
     }
 
-    async update(sql, parameter) {
+    async deleteOne(sql, parameter) {
         await this.reconectIfIsNotConnected();
-        const result = await this.client.run(sql, parameter);
-        return result.affectedRows;
+
+        const {affectedRows} = await this.client.run(sql, parameter);
+        return affectedRows;
     }
 
     static getInstance(options) {
