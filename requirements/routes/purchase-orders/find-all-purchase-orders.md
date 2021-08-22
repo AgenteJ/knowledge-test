@@ -8,4 +8,4 @@
 > ## Exceções
 
 1. ✅ Retorna erro **404** se a API não existir
-2. ✅ Retorna erro **500** se der erro ao tentar buscar as ordens de compra
+2. ✅ Retorna erro **500** se der erro ao tentar buscar as compras
