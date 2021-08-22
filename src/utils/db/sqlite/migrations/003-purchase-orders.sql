@@ -6,7 +6,7 @@ CREATE TABLE purchase_orders (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     product_id INTEGER NOT NULL, 
     price REAL,
-    deletion_flag CHAR(1),
+    deletion_flag CHAR(1) DEFAULT 'N',
     CONSTRAINT purchaseOrderProduct_fk_productId FOREIGN KEY (product_id)
     REFERENCES products (id) ON UPDATE CASCADE ON DELETE CASCADE
 );
