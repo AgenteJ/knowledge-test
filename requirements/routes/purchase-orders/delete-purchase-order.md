@@ -5,7 +5,7 @@
 1. ✅ Recebe uma requisição do tipo **DELETE** na rota **/api/orders/:id**
 2. ✅ Valida o dado obrigatório **id**
 3. ✅ **Deleta** o pedido de compra com o id fornecido
-4. ✅ Retorna **202**, com a informação do id excluído
+4. ✅ Retorna **200**, sem dados
 
 > ## Exceções
 
