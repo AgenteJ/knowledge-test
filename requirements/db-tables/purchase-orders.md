@@ -11,4 +11,4 @@
 | id | INTEGER | X | X |  | X |
 | product_id | INTEGER |  | X | | |
 | price | REAL |  | X | | |
-| deletion_flag | CHAR(1) |  | X | X | |
+| deletion_flag | CHAR(1) |  |  | X | |
